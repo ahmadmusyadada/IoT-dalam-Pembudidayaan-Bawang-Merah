@@ -45,32 +45,6 @@ void loop() {
     digitalWrite(pinLED, HIGH);
     delay(1000);
   }
-//
-//  if(jarak == 1) {
-//    digitalWrite(led1, LOW);
-//    digitalWrite(led2, HIGH);
-//    digitalWrite(led3, HIGH);
-//  }
-//  if(jarak == 2) {
-//    digitalWrite(led1, HIGH);
-//    digitalWrite(led2, LOW);
-//    digitalWrite(led3, HIGH);
-//  }
-//  if(jarak == 3) {
-//    digitalWrite(led1, HIGH);
-//    digitalWrite(led2, HIGH);
-//    digitalWrite(led3, LOW);
-//  }
-//  if(jarak > 3) {
-//    delay(1000);
-//    digitalWrite(led1, HIGH);
-//    digitalWrite(led2, HIGH);
-//    digitalWrite(led3, HIGH);
-//    delay(1000);
-//    digitalWrite(led1, LOW);
-//    digitalWrite(led2, LOW);
-//    digitalWrite(led3, LOW);
-//  }
   deteksiJarak();
 }
 
@@ -87,25 +61,15 @@ void deteksiJarak() {
   lcd.setCursor(0,0);
   lcd.print("S:" + String(suhu) + "C. J:" + String(jarak) + "cm");
   if (suhu >= 28){
-    scrollText(1, "Siram Tanaman", 250, 16);
+    text(1, "Siram Tanaman", 250, 16);
   }
   if (jarak <= 10){
-    scrollText(1, "Matikan Diesel", 250, 16);
+    text(1, "Matikan Diesel", 250, 16);
   }
   delay(200);
 }
 
-void scrollText(int row, String message, int delayTime, int lcdColumns)
-{
-//  for (int i = 0; i < lcdColumns; i++)
-//  {
-//    message = " " + message;
-//  }
-//  message = message + " ";
-//  for (int pos = 0; pos < message.length(); pos++)
-//  {
+void text(int row, String message, int delayTime, int lcdColumns){
     lcd.setCursor(0, row);
     lcd.print(message);
-//    delay(delayTime);
-//  }
 }
